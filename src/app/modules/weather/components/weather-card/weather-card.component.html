@@ -34,7 +34,42 @@
         </div>
 
         <div class="info-block-value">
-          {{ weatherDatasInput.main.temp_min }} <!-- Valor da temperatura mínima -->
+          {{ weatherDatasInput.main.temp_min | number: '1.0-0'}}ºC <!-- Valor da temperatura mínima -->
+        </div>
+      </div>
+
+      <!-- Bloco de informação: temperatura máxima -->
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="maxTemperatureIcon"></fa-icon>
+          <span>Máxima</span>
+        </div>
+
+        <div class="info-block-value">
+          {{weatherDatasInput.main.temp_max | number:'1.0-0'}}ºC
+        </div>
+      </div>
+
+      <!-- Bloco de informação: Humidade -->
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="humidityIcon"></fa-icon>
+          <span>Humidade</span>
+        </div>
+
+        <div class="info-block-value">
+          {{weatherDatasInput.main.humidity}}%
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="windIcon"></fa-icon>
+          <span>Vento</span>
+        </div>
+
+        <div class="info-block-value">
+          {{weatherDatasInput.wind.speed}} km/h
         </div>
       </div>
     </div>
