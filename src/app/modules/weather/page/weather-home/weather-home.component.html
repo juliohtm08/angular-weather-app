@@ -20,3 +20,6 @@
     </span>
   </form>
 </div>
+
+<!-- Componente filho exibido somente se weatherDatas tiver valor -->
+<app-weather-card *ngIf="weatherDatas" [weatherDatasInput]="weatherDatas"></app-weather-card>
