@@ -1,1 +1,42 @@
-<p>weather-card works!</p>
+<!-- Container principal exibido apenas se weatherDatasInput existir -->
+<div class="container" *ngIf="weatherDatasInput" >
+
+  <div class="upper-data">
+    <!-- Imagens -->
+    <img src="../../../../../assets/sun.jpg"
+    *ngIf="weatherDatasInput.main.temp > 15"
+    >
+    <img src="../../../../../assets/cold1.jpg"
+    *ngIf="weatherDatasInput.main.temp <= 15"
+    >
+
+    <!-- Bloco com informações principais do clima -->
+    <div class="weather-data">
+      <div class="location">
+        {{weatherDatasInput.name}} <!-- Nome da cidade -->
+      </div>
+      <div class="temperature">
+        {{weatherDatasInput.main.temp | number: '1.0-0'}}ºC <!-- Temperatura atual formatada como número inteiro -->
+      </div>
+    </div>
+  </div>
+
+  <div class="lower-data">
+    <div class="more-info-label">mais informações</div>
+
+    <!-- Container para os blocos de informações adicionais -->
+    <div class="more-info-container">
+      <!-- Bloco de informação: temperatura mínima -->
+      <div class="info-block">
+        <div class="info-block-label">
+          <fa-icon size="lg" [icon]="minTemperatureIcon" ></fa-icon>
+          <span>Mínima</span>
+        </div>
+
+        <div class="info-block-value">
+          {{ weatherDatasInput.main.temp_min }} <!-- Valor da temperatura mínima -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
