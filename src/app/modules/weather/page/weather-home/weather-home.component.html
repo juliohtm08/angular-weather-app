@@ -1,1 +1,22 @@
-<p>weather-home works!</p>
+<div class="search">
+   <!-- Formulário de busca com referência local #form e ligação com ngForm para validação -->
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input
+    type="text"
+    placeholder="Buscar Localização"
+    name="city"
+    [(ngModel)]="initialCityName"
+    />
+
+    <!-- Ícone de busca que também aciona o submit ao ser clicado -->
+    <span (click)="onSubmit()">
+      <fa-icon
+        animation="fade"
+        style="--fa-animations-duration: 5s; cursor: pointer"
+        size="lg"
+        class="search-icon"
+        [icon]="searchIcon"
+      ></fa-icon>
+    </span>
+  </form>
+</div>
